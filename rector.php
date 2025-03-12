@@ -11,7 +11,7 @@ return RectorConfig::configure()
         __DIR__.'/config',
     ])
     ->withSkip([
-        __DIR__ . '/tests/TestCase.php',
+        __DIR__.'/tests/TestCase.php',
         AddOverrideAttributeToOverriddenMethodsRector::class,
     ])
     ->withPreparedSets(
