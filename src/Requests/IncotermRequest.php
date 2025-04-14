@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SmartDato\DbSchenker\Requests;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class IncotermRequest extends Request
+final class IncotermRequest extends Request
 {
     /**
      * The HTTP method of the request

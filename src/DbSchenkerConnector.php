@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SmartDato\DbSchenker;
 
 use Saloon\Http\Connector;
 use Saloon\Traits\Plugins\AcceptsJson;
 
-class DbSchenkerConnector extends Connector
+final class DbSchenkerConnector extends Connector
 {
     use AcceptsJson;
 
