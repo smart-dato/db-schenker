@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SmartDato\DbSchenker\Data;
 
 use SmartDato\DbSchenker\Contracts\Data;
 
-class PackageData extends Data
+final class PackageData extends Data
 {
     public function __construct(
         protected int $codAmount,

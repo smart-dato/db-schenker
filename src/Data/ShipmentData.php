@@ -1,15 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SmartDato\DbSchenker\Data;
 
 use SmartDato\DbSchenker\Contracts\Data;
 
-class ShipmentData extends Data
+final class ShipmentData extends Data
 {
     /**
-     * @param PackageData[] $packages
-     * @param ShipmentOptionData[] $shipmentOptions
-     * @param FileData[] $files
+     * @param  PackageData[]  $packages
+     * @param  ShipmentOptionData[]  $shipmentOptions
+     * @param  FileData[]  $files
      */
     public function __construct(
         protected string $productCode,
@@ -30,7 +32,7 @@ class ShipmentData extends Data
             'shipper' => $this->shipper->build(),
             'consignee' => $this->consignee->build(),
             'packages' => array_map(fn ($package) => $package->build(), $this->packages),
-            'files' =>  array_map(fn ($file) => $file->build(), $this->files)
+            'files' => array_map(fn ($file) => $file->build(), $this->files),
         ];
 
         if (! empty($this->shipmentOptions)) {
