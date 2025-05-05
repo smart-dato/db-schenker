@@ -4,21 +4,35 @@ declare(strict_types=1);
 
 namespace SmartDato\DbSchenker\Requests;
 
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
+use SmartDato\DbSchenker\Data\ShipmentData;
 
-final class SubmitRequest extends Request
+final class SubmitRequest extends Request implements HasBody
 {
+    use HasJsonBody;
+
     /**
      * The HTTP method of the request
      */
-    protected Method $method = Method::GET;
+    protected Method $method = Method::POST;
+
+    public function __construct(
+        protected ShipmentData $data
+    ) {}
 
     /**
      * The endpoint for the request
      */
     public function resolveEndpoint(): string
     {
-        return '/example';
+        return '/api/booking/parcel/submit';
+    }
+
+    protected function defaultBody(): array
+    {
+        return $this->data->build();
     }
 }
