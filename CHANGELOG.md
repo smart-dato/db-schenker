@@ -2,6 +2,10 @@
 
 All notable changes to `db-schenker` will be documented in this file.
 
+## 0.0.2 - 2025-05-07
+
+**Full Changelog**: https://github.com/smart-dato/db-schenker/compare/0.0.1...0.0.2
+
 ## 0.0.1 - 2025-05-07
 
 ### What's Changed
