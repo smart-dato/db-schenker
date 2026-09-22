@@ -31,6 +31,7 @@ final class SaveRequest extends Request implements HasBody
         return '/api/booking/parcel/save';
     }
 
+    /** @return array<string, mixed> */
     protected function defaultBody(): array
     {
         return $this->data->build();

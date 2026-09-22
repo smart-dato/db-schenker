@@ -21,6 +21,7 @@ final class PackageData extends Data
         protected int $quantity,
     ) {}
 
+    /** @return array<string, mixed> */
     public function build(): array
     {
         return [

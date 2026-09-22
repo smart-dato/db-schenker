@@ -12,6 +12,7 @@ final class ShippingPartyData extends Data
         protected AddressData $address,
     ) {}
 
+    /** @return array<string, mixed> */
     public function build(): array
     {
         return [
