@@ -15,6 +15,7 @@ final class FileData extends Data
         protected string $documentType,
     ) {}
 
+    /** @return array<string, mixed> */
     public function build(): array
     {
         return [

@@ -25,6 +25,7 @@ final class AddressData extends Data
         protected ?string $postalCode = null,
     ) {}
 
+    /** @return array<string, mixed> */
     public function build(): array
     {
         $data = [

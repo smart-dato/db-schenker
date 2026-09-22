@@ -13,6 +13,7 @@ final class ShipmentOptionData extends Data
         protected ?float $amount = null,
     ) {}
 
+    /** @return array<string, mixed> */
     public function build(): array
     {
         $data = [
