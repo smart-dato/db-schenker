@@ -24,6 +24,7 @@ final class ShipmentData extends Data
         protected ?string $labelFormat = null,
     ) {}
 
+    /** @return array<string, mixed> */
     public function build(): array
     {
         $data = [

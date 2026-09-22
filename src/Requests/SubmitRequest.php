@@ -31,6 +31,7 @@ final class SubmitRequest extends Request implements HasBody
         return '/api/booking/parcel/submit';
     }
 
+    /** @return array<string, mixed> */
     protected function defaultBody(): array
     {
         return $this->data->build();
