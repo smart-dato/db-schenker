@@ -35,14 +35,14 @@ The test environment is `https://wwwtest.dbschenker.com/nges-portal`; production
 
 ## Usage
 
-Work with the Saloon connector and send one of the booking requests. The connector reads the base URL and token from config, or you can pass them explicitly:
+`DbSchenker` reads the base URL and token from config, or you can pass them explicitly. The `DbSchenker` facade resolves the same class with the configured values.
 
 ```php
-use SmartDato\DbSchenker\DbSchenkerConnector;
+use SmartDato\DbSchenker\DbSchenker;
 
-$connector = new DbSchenkerConnector();
+$dbSchenker = new DbSchenker();
 
-// or: new DbSchenkerConnector(url: 'https://…', token: '…');
+// or: new DbSchenker(url: 'https://…', token: '…');
 ```
 
 ### Build a shipment
@@ -104,25 +104,16 @@ Codes such as `personType`, `weightUnit`, `dimensionUnit`, `packagingCode` and `
 ### Save and submit a booking
 
 ```php
-use SmartDato\DbSchenker\Requests\SaveRequest;
-use SmartDato\DbSchenker\Requests\SubmitRequest;
-
 // Save the booking without submitting it — POST /api/booking/parcel/save
-$response = $connector->send(new SaveRequest($shipment));
+$response = $dbSchenker->save($shipment);
 
 // Submit the booking — POST /api/booking/parcel/submit
-$response = $connector->send(new SubmitRequest($shipment));
+$response = $dbSchenker->submit($shipment);
 
 $response->json();
 ```
 
-Both return a Saloon `Response`, so the usual `status()`, `json()` and `throw()` are available.
-
-### Not yet implemented
-
-The package also contains `AccessPointRequest`, `BookRequest`, `IncotermRequest`, `PrintRequest`, `ProductRequest`, `ReferenceRequest` and `ServiceProviderRequest`. These are **placeholders**: each still points at a `GET /example` endpoint and will not reach a real DB Schenker API. Only `SaveRequest` and `SubmitRequest` are functional.
-
-> The `DbSchenker` facade is registered but currently resolves to an empty class, so use the connector directly as shown above.
+Both return a Saloon `Response`, so the usual `status()`, `json()` and `throw()` are available. The underlying `DbSchenkerConnector` is available as `$dbSchenker->connector` if you want to send `SaveRequest` / `SubmitRequest` yourself.
 
 ## Testing
 
